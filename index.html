@@ -13,25 +13,18 @@
   --gold:      #c9943a;
   --gold-lt:   #e8b96a;
   --gold-dim:  #9a7030;
-  --cream:     #f8f4ee;
   --white:     #ffffff;
-  --text:      #1e293b;
   --muted:     #64748b;
   --border:    rgba(201,148,58,0.2);
 }
-
 *, *::before, *::after { margin:0; padding:0; box-sizing:border-box; }
-
 html { scroll-behavior: smooth; }
-
 body {
   font-family: 'Outfit', sans-serif;
   background: var(--navy);
   color: var(--white);
   overflow-x: hidden;
 }
-
-/* ── NOISE TEXTURE OVERLAY ── */
 body::before {
   content:'';
   position:fixed; inset:0;
@@ -39,420 +32,190 @@ body::before {
   pointer-events:none; z-index:0; opacity:0.4;
 }
 
-/* ── NAVIGATION ── */
+/* ── NAV ── */
 nav {
-  position: fixed; top:0; left:0; right:0; z-index:100;
-  padding: 18px 60px;
-  display: flex; justify-content: space-between; align-items: center;
-  background: rgba(11,31,58,0.92);
-  backdrop-filter: blur(12px);
-  border-bottom: 1px solid var(--border);
+  position:fixed; top:0; left:0; right:0; z-index:100;
+  padding:18px 60px;
+  display:flex; justify-content:space-between; align-items:center;
+  background:rgba(11,31,58,0.92);
+  backdrop-filter:blur(12px);
+  border-bottom:1px solid var(--border);
 }
-.nav-logo {
-  font-family: 'Cormorant Garamond', serif;
-  font-size: 20px; font-weight: 700;
-  color: var(--white);
-  letter-spacing: 0.5px;
-}
-.nav-logo span { color: var(--gold-lt); }
+.nav-logo { font-family:'Cormorant Garamond',serif; font-size:20px; font-weight:700; color:var(--white); }
+.nav-logo span { color:var(--gold-lt); }
 .nav-links { display:flex; gap:32px; }
-.nav-links a {
-  font-size: 13px; font-weight: 500;
-  color: rgba(255,255,255,0.6);
-  text-decoration: none;
-  letter-spacing: 0.5px;
-  transition: color 0.2s;
-}
-.nav-links a:hover { color: var(--gold-lt); }
+.nav-links a { font-size:13px; font-weight:500; color:rgba(255,255,255,0.6); text-decoration:none; letter-spacing:0.5px; transition:color 0.2s; }
+.nav-links a:hover { color:var(--gold-lt); }
 
 /* ── HERO ── */
 .hero {
-  min-height: 100vh;
-  display: flex; align-items: center;
-  padding: 120px 60px 80px;
-  position: relative;
-  overflow: hidden;
+  min-height:100vh; display:flex; align-items:center;
+  padding:120px 60px 80px; position:relative; overflow:hidden;
 }
-/* Diagonal gold accent */
-.hero::before {
-  content:'';
-  position:absolute;
-  top:-200px; right:-200px;
-  width:700px; height:700px;
-  border-radius:50%;
-  background: radial-gradient(circle, rgba(201,148,58,0.12) 0%, transparent 70%);
-  pointer-events:none;
-}
-.hero::after {
-  content:'';
-  position:absolute;
-  bottom:-100px; left:20%;
-  width:500px; height:500px;
-  border-radius:50%;
-  background: radial-gradient(circle, rgba(21,47,85,0.8) 0%, transparent 70%);
-  pointer-events:none;
-}
-.hero-inner {
-  max-width: 1100px; margin: 0 auto;
-  display: grid; grid-template-columns: 1fr 340px;
-  gap: 80px; align-items: center;
-  position: relative; z-index:1;
-}
-.hero-tag {
-  display: inline-flex; align-items: center; gap: 8px;
-  font-family: 'DM Mono', monospace;
-  font-size: 11px; font-weight: 500;
-  color: var(--gold-lt);
-  letter-spacing: 2px; text-transform: uppercase;
-  margin-bottom: 24px;
-  padding: 6px 14px;
-  border: 1px solid rgba(232,185,106,0.3);
-  border-radius: 2px;
-}
-.hero-tag::before {
-  content:''; width:6px; height:6px;
-  background: var(--gold); border-radius:50%;
-  animation: pulse 2s infinite;
-}
-@keyframes pulse {
-  0%,100%{ opacity:1; transform:scale(1); }
-  50%{ opacity:0.4; transform:scale(0.8); }
-}
-.hero-name {
-  font-family: 'Cormorant Garamond', serif;
-  font-size: clamp(52px, 6vw, 80px);
-  font-weight: 700;
-  line-height: 1.0;
-  color: var(--white);
-  margin-bottom: 8px;
-}
-.hero-name span { color: var(--gold-lt); display:block; }
-.hero-title {
-  font-size: 16px; font-weight: 400;
-  color: rgba(255,255,255,0.55);
-  letter-spacing: 1px;
-  text-transform: uppercase;
-  margin-bottom: 28px;
-}
-.hero-statement {
-  font-size: 18px; font-weight: 300;
-  color: rgba(255,255,255,0.82);
-  line-height: 1.75;
-  max-width: 560px;
-  margin-bottom: 44px;
-  border-left: 3px solid var(--gold);
-  padding-left: 20px;
-}
-.hero-statement strong { color: var(--white); font-weight: 600; }
+.hero::before { content:''; position:absolute; top:-200px; right:-200px; width:700px; height:700px; border-radius:50%; background:radial-gradient(circle, rgba(201,148,58,0.12) 0%, transparent 70%); pointer-events:none; }
+.hero::after { content:''; position:absolute; bottom:-100px; left:20%; width:500px; height:500px; border-radius:50%; background:radial-gradient(circle, rgba(21,47,85,0.8) 0%, transparent 70%); pointer-events:none; }
+.hero-inner { max-width:1100px; margin:0 auto; display:grid; grid-template-columns:1fr 340px; gap:80px; align-items:center; position:relative; z-index:1; }
+.hero-tag { display:inline-flex; align-items:center; gap:8px; font-family:'DM Mono',monospace; font-size:11px; font-weight:500; color:var(--gold-lt); letter-spacing:2px; text-transform:uppercase; margin-bottom:24px; padding:6px 14px; border:1px solid rgba(232,185,106,0.3); border-radius:2px; }
+.hero-tag::before { content:''; width:6px; height:6px; background:var(--gold); border-radius:50%; animation:pulse 2s infinite; }
+@keyframes pulse { 0%,100%{ opacity:1; transform:scale(1); } 50%{ opacity:0.4; transform:scale(0.8); } }
+.hero-name { font-family:'Cormorant Garamond',serif; font-size:clamp(52px,6vw,80px); font-weight:700; line-height:1.0; color:var(--white); margin-bottom:8px; }
+.hero-name span { color:var(--gold-lt); display:block; }
+.hero-title { font-size:16px; font-weight:400; color:rgba(255,255,255,0.55); letter-spacing:1px; text-transform:uppercase; margin-bottom:20px; }
+.hero-statement { font-size:18px; font-weight:300; color:rgba(255,255,255,0.82); line-height:1.75; max-width:560px; margin-bottom:16px; border-left:3px solid var(--gold); padding-left:20px; }
+.hero-statement strong { color:var(--white); font-weight:600; }
+/* NEW: unusual intersection line */
+.hero-intersect { font-size:14px; font-weight:400; color:rgba(255,255,255,0.5); line-height:1.7; max-width:520px; margin-bottom:36px; padding-left:23px; font-style:italic; }
+.hero-intersect em { color:var(--gold-lt); font-style:normal; font-weight:500; }
 .hero-ctas { display:flex; gap:16px; flex-wrap:wrap; }
-.btn-primary {
-  display: inline-flex; align-items:center; gap:8px;
-  padding: 14px 28px;
-  background: var(--gold);
-  color: var(--navy);
-  font-size: 14px; font-weight: 600;
-  text-decoration: none;
-  letter-spacing: 0.3px;
-  transition: all 0.25s;
-  border: 2px solid var(--gold);
-}
-.btn-primary:hover { background: var(--gold-lt); border-color: var(--gold-lt); transform: translateY(-2px); }
-.btn-outline {
-  display: inline-flex; align-items:center; gap:8px;
-  padding: 14px 28px;
-  background: transparent;
-  color: var(--white);
-  font-size: 14px; font-weight: 500;
-  text-decoration: none;
-  letter-spacing: 0.3px;
-  border: 2px solid rgba(255,255,255,0.25);
-  transition: all 0.25s;
-}
-.btn-outline:hover { border-color: var(--gold-lt); color: var(--gold-lt); transform: translateY(-2px); }
+.btn-primary { display:inline-flex; align-items:center; gap:8px; padding:14px 28px; background:var(--gold); color:var(--navy); font-size:14px; font-weight:600; text-decoration:none; transition:all 0.25s; border:2px solid var(--gold); }
+.btn-primary:hover { background:var(--gold-lt); border-color:var(--gold-lt); transform:translateY(-2px); }
+.btn-outline { display:inline-flex; align-items:center; gap:8px; padding:14px 28px; background:transparent; color:var(--white); font-size:14px; font-weight:500; text-decoration:none; border:2px solid rgba(255,255,255,0.25); transition:all 0.25s; }
+.btn-outline:hover { border-color:var(--gold-lt); color:var(--gold-lt); transform:translateY(-2px); }
 
-/* Hero right — contact card */
-.hero-card {
-  background: rgba(255,255,255,0.04);
-  border: 1px solid var(--border);
-  padding: 36px 30px;
-  position: relative;
-}
-.hero-card::before {
-  content:'';
-  position:absolute; top:0; left:0; right:0; height:3px;
-  background: linear-gradient(90deg, var(--gold), var(--gold-lt));
-}
-.hero-card-title {
-  font-family: 'DM Mono', monospace;
-  font-size: 10px; letter-spacing: 2.5px; text-transform: uppercase;
-  color: var(--gold-lt); margin-bottom: 20px;
-}
-.contact-row {
-  display:flex; align-items: flex-start; gap: 12px;
-  margin-bottom: 16px; padding-bottom: 16px;
-  border-bottom: 1px solid rgba(255,255,255,0.06);
-}
+/* Hero right card */
+.hero-card { background:rgba(255,255,255,0.04); border:1px solid var(--border); padding:36px 30px; position:relative; }
+.hero-card::before { content:''; position:absolute; top:0; left:0; right:0; height:3px; background:linear-gradient(90deg, var(--gold), var(--gold-lt)); }
+.hero-card-title { font-family:'DM Mono',monospace; font-size:10px; letter-spacing:2.5px; text-transform:uppercase; color:var(--gold-lt); margin-bottom:20px; }
+.contact-row { display:flex; align-items:flex-start; gap:12px; margin-bottom:16px; padding-bottom:16px; border-bottom:1px solid rgba(255,255,255,0.06); }
 .contact-row:last-child { border-bottom:none; margin-bottom:0; padding-bottom:0; }
 .contact-icon { font-size:16px; margin-top:2px; flex-shrink:0; }
 .contact-label { font-size:10px; color:rgba(255,255,255,0.4); text-transform:uppercase; letter-spacing:1px; margin-bottom:2px; }
 .contact-val { font-size:13px; color:rgba(255,255,255,0.85); }
-.contact-val a { color: var(--gold-lt); text-decoration:none; font-size:12px; }
-.contact-val a:hover { text-decoration: underline; }
+.contact-val a { color:var(--gold-lt); text-decoration:none; font-size:12px; }
+.contact-val a:hover { text-decoration:underline; }
+
+/* NEW: quick facts card below contact */
+.quick-facts { margin-top:16px; border-top:1px solid var(--border); padding-top:16px; }
+.quick-facts-title { font-family:'DM Mono',monospace; font-size:9px; letter-spacing:2px; text-transform:uppercase; color:rgba(255,255,255,0.35); margin-bottom:12px; }
+.fact-row { display:flex; align-items:center; gap:10px; margin-bottom:8px; }
+.fact-icon { font-size:13px; flex-shrink:0; }
+.fact-text { font-size:12px; color:rgba(255,255,255,0.6); line-height:1.3; }
+.fact-text strong { color:rgba(255,255,255,0.85); font-weight:500; }
 
 /* ── METRICS ── */
-.metrics {
-  background: var(--gold);
-  padding: 0;
-  position: relative; z-index:1;
-}
-.metrics-inner {
-  max-width: 1100px; margin:0 auto;
-  display: grid; grid-template-columns: repeat(5,1fr);
-}
-.metric {
-  padding: 28px 20px;
-  text-align: center;
-  border-right: 1px solid rgba(11,31,58,0.15);
-  transition: background 0.2s;
-}
+.metrics { background:var(--gold); padding:0; position:relative; z-index:1; }
+.metrics-inner { max-width:1100px; margin:0 auto; display:grid; grid-template-columns:repeat(5,1fr); }
+.metric { padding:28px 20px; text-align:center; border-right:1px solid rgba(11,31,58,0.15); transition:background 0.2s; }
 .metric:last-child { border-right:none; }
-.metric:hover { background: rgba(255,255,255,0.08); }
-.metric-val {
-  font-family: 'Cormorant Garamond', serif;
-  font-size: 40px; font-weight: 700;
-  color: var(--navy); line-height:1;
-}
-.metric-lbl {
-  font-size: 11px; font-weight: 600;
-  color: var(--navy); opacity: 0.7;
-  text-transform: uppercase; letter-spacing: 0.8px;
-  margin-top: 6px; line-height:1.4;
-}
+.metric:hover { background:rgba(255,255,255,0.08); }
+.metric-val { font-family:'Cormorant Garamond',serif; font-size:40px; font-weight:700; color:var(--navy); line-height:1; }
+.metric-lbl { font-size:11px; font-weight:600; color:var(--navy); opacity:0.7; text-transform:uppercase; letter-spacing:0.8px; margin-top:6px; line-height:1.4; }
 
 /* ── SECTIONS ── */
-section { position: relative; z-index:1; }
+section { position:relative; z-index:1; }
+.section-inner { max-width:1100px; margin:0 auto; padding:100px 60px; }
+.section-label { font-family:'DM Mono',monospace; font-size:11px; letter-spacing:3px; text-transform:uppercase; color:var(--gold); margin-bottom:12px; }
+.section-heading { font-family:'Cormorant Garamond',serif; font-size:clamp(34px,4vw,48px); font-weight:700; color:var(--white); margin-bottom:16px; line-height:1.1; }
+.section-heading span { color:var(--gold-lt); }
+.section-sub { font-size:16px; font-weight:300; color:rgba(255,255,255,0.55); max-width:560px; line-height:1.7; margin-bottom:60px; }
 
-.section-inner {
-  max-width: 1100px; margin: 0 auto;
-  padding: 100px 60px;
+/* ── ABOUT / STORY ── */
+.about-section { background:var(--navy-mid); }
+.about-grid { display:grid; grid-template-columns:1fr 1fr; gap:60px; align-items:start; }
+.about-text p { font-size:15px; font-weight:300; color:rgba(255,255,255,0.75); line-height:1.85; margin-bottom:18px; }
+.about-text p strong { color:var(--white); font-weight:500; }
+.about-quote {
+  border-left:3px solid var(--gold); padding:24px 28px;
+  background:rgba(201,148,58,0.06); margin-top:32px;
+  font-family:'Cormorant Garamond',serif;
+  font-size:17px; font-style:italic; color:rgba(255,255,255,0.8);
+  line-height:1.7;
 }
+.about-quote cite { display:block; margin-top:12px; font-style:normal; font-family:'DM Mono',monospace; font-size:10px; color:var(--gold-lt); letter-spacing:1px; }
+.about-tools { }
+.tools-heading { font-family:'DM Mono',monospace; font-size:10px; letter-spacing:2px; text-transform:uppercase; color:var(--gold); margin-bottom:20px; padding-bottom:8px; border-bottom:1px solid var(--border); }
+.tools-group { margin-bottom:24px; }
+.tools-group-label { font-size:12px; font-weight:600; color:rgba(255,255,255,0.4); text-transform:uppercase; letter-spacing:1px; margin-bottom:10px; }
+.tools-list { display:flex; flex-wrap:wrap; gap:8px; }
+.tool-tag { font-size:12px; color:rgba(255,255,255,0.7); padding:4px 12px; border:1px solid rgba(255,255,255,0.1); background:rgba(255,255,255,0.03); transition:all 0.2s; }
+.tool-tag:hover { border-color:var(--gold); color:var(--gold-lt); }
 
-.section-label {
-  font-family: 'DM Mono', monospace;
-  font-size: 11px; letter-spacing: 3px; text-transform: uppercase;
-  color: var(--gold);
-  margin-bottom: 12px;
-}
-.section-heading {
-  font-family: 'Cormorant Garamond', serif;
-  font-size: clamp(34px, 4vw, 48px); font-weight: 700;
-  color: var(--white);
-  margin-bottom: 16px; line-height: 1.1;
-}
-.section-heading span { color: var(--gold-lt); }
-.section-sub {
-  font-size: 16px; font-weight: 300;
-  color: rgba(255,255,255,0.55);
-  max-width: 560px; line-height: 1.7;
-  margin-bottom: 60px;
-}
-
-/* ── WHAT I BRING — pillars ── */
-.pillars {
-  background: var(--navy-mid);
-}
-.pillars-grid {
-  display: grid; grid-template-columns: repeat(2, 1fr);
-  gap: 2px;
-  margin-top: 0;
-}
-.pillar {
-  background: rgba(255,255,255,0.03);
-  padding: 44px 40px;
-  border: 1px solid var(--border);
-  transition: all 0.3s;
-  position: relative;
-  overflow: hidden;
-}
-.pillar::before {
-  content:'';
-  position:absolute; bottom:0; left:0; right:0; height:2px;
-  background: linear-gradient(90deg, var(--gold), transparent);
-  transform: scaleX(0); transform-origin:left;
-  transition: transform 0.3s;
-}
-.pillar:hover { background: rgba(201,148,58,0.05); }
-.pillar:hover::before { transform: scaleX(1); }
-.pillar-num {
-  font-family: 'Cormorant Garamond', serif;
-  font-size: 52px; font-weight: 700;
-  color: rgba(201,148,58,0.12);
-  line-height: 1; margin-bottom: 16px;
-}
-.pillar-title {
-  font-size: 18px; font-weight: 600;
-  color: var(--white); margin-bottom: 12px;
-}
-.pillar-title span { color: var(--gold-lt); }
-.pillar-text {
-  font-size: 14px; font-weight: 300;
-  color: rgba(255,255,255,0.6);
-  line-height: 1.8;
-}
+/* ── PILLARS ── */
+.pillars { background:var(--navy); }
+.pillars-grid { display:grid; grid-template-columns:repeat(2,1fr); gap:2px; }
+.pillar { background:rgba(255,255,255,0.03); padding:44px 40px; border:1px solid var(--border); transition:all 0.3s; position:relative; overflow:hidden; }
+.pillar::before { content:''; position:absolute; bottom:0; left:0; right:0; height:2px; background:linear-gradient(90deg, var(--gold), transparent); transform:scaleX(0); transform-origin:left; transition:transform 0.3s; }
+.pillar:hover { background:rgba(201,148,58,0.05); }
+.pillar:hover::before { transform:scaleX(1); }
+.pillar-num { font-family:'Cormorant Garamond',serif; font-size:52px; font-weight:700; color:rgba(201,148,58,0.12); line-height:1; margin-bottom:16px; }
+.pillar-title { font-size:18px; font-weight:600; color:var(--white); margin-bottom:12px; }
+.pillar-title span { color:var(--gold-lt); }
+.pillar-text { font-size:14px; font-weight:300; color:rgba(255,255,255,0.6); line-height:1.8; }
 .pillar-tags { display:flex; flex-wrap:wrap; gap:6px; margin-top:16px; }
-.pillar-tag {
-  font-size: 11px; font-weight: 500;
-  padding: 3px 10px;
-  border: 1px solid rgba(201,148,58,0.3);
-  color: var(--gold-lt);
-  border-radius: 2px;
-}
+.pillar-tag { font-size:11px; font-weight:500; padding:3px 10px; border:1px solid rgba(201,148,58,0.3); color:var(--gold-lt); border-radius:2px; }
 
 /* ── EXPERIENCE ── */
-.exp-section { background: var(--navy); }
+.exp-section { background:var(--navy-mid); }
 .exp-grid { display:flex; flex-direction:column; gap:2px; }
-.exp-card {
-  background: rgba(255,255,255,0.03);
-  border: 1px solid var(--border);
-  padding: 40px 44px;
-  display: grid; grid-template-columns: 200px 1fr;
-  gap: 40px;
-  transition: background 0.25s;
-  cursor: default;
-}
-.exp-card:hover { background: rgba(201,148,58,0.04); }
-.exp-left {}
-.exp-company {
-  font-size: 13px; font-weight: 600;
-  color: var(--gold-lt); letter-spacing: 0.5px;
-  margin-bottom: 6px;
-}
-.exp-dates {
-  font-family: 'DM Mono', monospace;
-  font-size: 11px; color: rgba(255,255,255,0.4);
-  margin-bottom: 4px;
-}
-.exp-tenure {
-  font-size: 11px; color: rgba(255,255,255,0.3);
-  margin-bottom: 20px;
-}
-.exp-loc {
-  font-size: 12px; color: rgba(255,255,255,0.35);
-  line-height: 1.5;
-}
-.exp-right {}
-.exp-role {
-  font-size: 19px; font-weight: 600;
-  color: var(--white); margin-bottom: 16px;
-  line-height: 1.3;
-}
+.exp-card { background:rgba(255,255,255,0.03); border:1px solid var(--border); padding:40px 44px; display:grid; grid-template-columns:200px 1fr; gap:40px; transition:background 0.25s; cursor:default; }
+.exp-card:hover { background:rgba(201,148,58,0.04); }
+.exp-company { font-size:13px; font-weight:600; color:var(--gold-lt); letter-spacing:0.5px; margin-bottom:6px; }
+.exp-dates { font-family:'DM Mono',monospace; font-size:11px; color:rgba(255,255,255,0.4); margin-bottom:4px; }
+.exp-tenure { font-size:11px; color:rgba(255,255,255,0.3); margin-bottom:20px; }
+.exp-loc { font-size:12px; color:rgba(255,255,255,0.35); line-height:1.5; }
+.exp-role { font-size:19px; font-weight:600; color:var(--white); margin-bottom:16px; line-height:1.3; }
 .exp-points { list-style:none; }
-.exp-points li {
-  font-size: 14px; font-weight: 300;
-  color: rgba(255,255,255,0.7);
-  padding: 5px 0 5px 18px;
-  position: relative; line-height: 1.65;
-  border-bottom: 1px solid rgba(255,255,255,0.04);
-}
+.exp-points li { font-size:14px; font-weight:300; color:rgba(255,255,255,0.7); padding:5px 0 5px 18px; position:relative; line-height:1.65; border-bottom:1px solid rgba(255,255,255,0.04); }
 .exp-points li:last-child { border-bottom:none; }
-.exp-points li::before {
-  content:'›';
-  position:absolute; left:0;
-  color: var(--gold); font-size:16px; line-height:1.3;
-}
-.exp-points li strong { color: var(--white); font-weight:500; }
+.exp-points li::before { content:'›'; position:absolute; left:0; color:var(--gold); font-size:16px; line-height:1.3; }
+.exp-points li strong { color:var(--white); font-weight:500; }
+
+/* NEW: client sectors inside experience */
+.client-sectors { display:flex; flex-wrap:wrap; gap:8px; margin-top:20px; padding-top:16px; border-top:1px solid rgba(255,255,255,0.06); }
+.client-badge { font-size:11px; padding:4px 12px; border:1px solid var(--border); color:rgba(255,255,255,0.5); font-family:'DM Mono',monospace; letter-spacing:0.5px; }
 
 /* ── OPEN TO ── */
-.open-section {
-  background: linear-gradient(135deg, var(--navy-mid) 0%, var(--navy-card) 100%);
-  border-top: 1px solid var(--border);
-  border-bottom: 1px solid var(--border);
-}
-.open-grid {
-  display: grid; grid-template-columns: repeat(3,1fr);
-  gap: 24px; margin-top: 20px;
-}
-.open-card {
-  padding: 30px 28px;
-  border: 1px solid var(--border);
-  background: rgba(255,255,255,0.03);
-  transition: all 0.25s;
-}
-.open-card:hover { border-color: var(--gold); background: rgba(201,148,58,0.05); }
-.open-icon { font-size: 28px; margin-bottom: 14px; }
-.open-title { font-size: 16px; font-weight: 600; color: var(--white); margin-bottom: 8px; }
-.open-desc { font-size: 13px; font-weight: 300; color: rgba(255,255,255,0.55); line-height: 1.65; }
+.open-section { background:linear-gradient(135deg, var(--navy-mid) 0%, var(--navy-card) 100%); border-top:1px solid var(--border); border-bottom:1px solid var(--border); }
+.open-grid { display:grid; grid-template-columns:repeat(3,1fr); gap:24px; margin-top:20px; }
+.open-card { padding:30px 28px; border:1px solid var(--border); background:rgba(255,255,255,0.03); transition:all 0.25s; }
+.open-card:hover { border-color:var(--gold); background:rgba(201,148,58,0.05); }
+.open-icon { font-size:28px; margin-bottom:14px; }
+.open-title { font-size:16px; font-weight:600; color:var(--white); margin-bottom:8px; }
+.open-desc { font-size:13px; font-weight:300; color:rgba(255,255,255,0.55); line-height:1.65; }
 
 /* ── COMPETENCIES ── */
-.comp-section { background: var(--navy-mid); }
-.comp-grid {
-  display: grid; grid-template-columns: repeat(3,1fr);
-  gap: 12px;
-}
-.comp-item {
-  display:flex; align-items:center; gap:10px;
-  padding: 14px 18px;
-  border: 1px solid var(--border);
-  background: rgba(255,255,255,0.02);
-  font-size: 13px; font-weight: 400;
-  color: rgba(255,255,255,0.75);
-  transition: all 0.2s;
-}
-.comp-item:hover { border-color: var(--gold); color: var(--white); background: rgba(201,148,58,0.06); }
-.comp-item::before { content:'▪'; color: var(--gold); font-size:10px; flex-shrink:0; }
+.comp-section { background:var(--navy); }
+.comp-grid { display:grid; grid-template-columns:repeat(3,1fr); gap:12px; }
+.comp-item { display:flex; align-items:center; gap:10px; padding:14px 18px; border:1px solid var(--border); background:rgba(255,255,255,0.02); font-size:13px; font-weight:400; color:rgba(255,255,255,0.75); transition:all 0.2s; }
+.comp-item:hover { border-color:var(--gold); color:var(--white); background:rgba(201,148,58,0.06); }
+.comp-item::before { content:'▪'; color:var(--gold); font-size:10px; flex-shrink:0; }
+
+/* ── GLOBAL FOOTPRINT ── */
+.footprint-section { background:var(--navy-mid); }
+.footprint-grid { display:grid; grid-template-columns:repeat(3,1fr); gap:16px; }
+.footprint-card { padding:24px 28px; border:1px solid var(--border); background:rgba(255,255,255,0.03); transition:all 0.25s; }
+.footprint-card:hover { border-color:var(--gold); background:rgba(201,148,58,0.04); }
+.footprint-flag { font-size:28px; margin-bottom:10px; }
+.footprint-country { font-size:13px; font-weight:600; color:var(--gold-lt); text-transform:uppercase; letter-spacing:1px; margin-bottom:4px; }
+.footprint-client { font-size:13px; color:var(--white); font-weight:500; margin-bottom:4px; }
+.footprint-sector { font-size:11px; color:rgba(255,255,255,0.4); font-family:'DM Mono',monospace; }
 
 /* ── CTA ── */
-.cta-section { background: var(--navy); }
-.cta-inner {
-  max-width: 1100px; margin:0 auto;
-  padding: 100px 60px;
-  display: grid; grid-template-columns: 1fr auto;
-  gap: 60px; align-items: center;
-}
-.cta-heading {
-  font-family: 'Cormorant Garamond', serif;
-  font-size: clamp(36px, 4vw, 52px); font-weight: 700;
-  color: var(--white); line-height: 1.15;
-  margin-bottom: 16px;
-}
-.cta-heading span { color: var(--gold-lt); }
+.cta-section { background:var(--navy); }
+.cta-inner { max-width:1100px; margin:0 auto; padding:100px 60px; display:grid; grid-template-columns:1fr auto; gap:60px; align-items:center; }
+.cta-heading { font-family:'Cormorant Garamond',serif; font-size:clamp(36px,4vw,52px); font-weight:700; color:var(--white); line-height:1.15; margin-bottom:16px; }
+.cta-heading span { color:var(--gold-lt); }
 .cta-sub { font-size:16px; font-weight:300; color:rgba(255,255,255,0.5); line-height:1.7; max-width:500px; }
 .cta-buttons { display:flex; flex-direction:column; gap:14px; min-width:220px; }
 
 /* ── FOOTER ── */
-footer {
-  background: rgba(0,0,0,0.3);
-  border-top: 1px solid var(--border);
-  padding: 28px 60px;
-  display:flex; justify-content:space-between; align-items:center;
-  position: relative; z-index:1;
-}
-.footer-name {
-  font-family: 'Cormorant Garamond', serif;
-  font-size: 18px; font-weight: 700; color: var(--white);
-}
-.footer-name span { color: var(--gold-lt); }
-.footer-right { font-size:12px; color:rgba(255,255,255,0.3); }
+footer { background:rgba(0,0,0,0.3); border-top:1px solid var(--border); padding:28px 60px; display:flex; justify-content:space-between; align-items:center; position:relative; z-index:1; }
+.footer-name { font-family:'Cormorant Garamond',serif; font-size:18px; font-weight:700; color:var(--white); }
+.footer-name span { color:var(--gold-lt); }
+/* NEW: personal quote in footer */
+.footer-quote { font-size:12px; color:rgba(255,255,255,0.3); font-style:italic; max-width:400px; text-align:center; line-height:1.5; }
+.footer-right { font-size:12px; color:rgba(255,255,255,0.3); text-align:right; }
 
 /* ── ANIMATIONS ── */
-.fade-up {
-  opacity:0; transform: translateY(30px);
-  animation: fadeUp 0.7s forwards;
-}
-@keyframes fadeUp {
-  to { opacity:1; transform:translateY(0); }
-}
+.fade-up { opacity:0; transform:translateY(30px); animation:fadeUp 0.7s forwards; }
+@keyframes fadeUp { to { opacity:1; transform:translateY(0); } }
 .fade-up:nth-child(1){ animation-delay:0.1s; }
 .fade-up:nth-child(2){ animation-delay:0.25s; }
 .fade-up:nth-child(3){ animation-delay:0.4s; }
 .fade-up:nth-child(4){ animation-delay:0.55s; }
 .fade-up:nth-child(5){ animation-delay:0.7s; }
-
-/* Scroll reveal */
-.reveal {
-  opacity:0; transform:translateY(24px);
-  transition: opacity 0.6s ease, transform 0.6s ease;
-}
+.fade-up:nth-child(6){ animation-delay:0.85s; }
+.reveal { opacity:0; transform:translateY(24px); transition:opacity 0.6s ease, transform 0.6s ease; }
 .reveal.visible { opacity:1; transform:translateY(0); }
 
 /* ── RESPONSIVE ── */
@@ -462,15 +225,17 @@ footer {
   .hero { padding:100px 24px 60px; }
   .hero-inner { grid-template-columns:1fr; gap:40px; }
   .section-inner { padding:70px 24px; }
+  .about-grid { grid-template-columns:1fr; }
   .pillars-grid { grid-template-columns:1fr; }
   .exp-card { grid-template-columns:1fr; gap:16px; }
   .open-grid { grid-template-columns:1fr; }
   .comp-grid { grid-template-columns:repeat(2,1fr); }
+  .footprint-grid { grid-template-columns:repeat(2,1fr); }
   .cta-inner { grid-template-columns:1fr; }
   .metrics-inner { grid-template-columns:repeat(3,1fr); }
-  .metric:nth-child(4),
-  .metric:nth-child(5){ border-top:1px solid rgba(11,31,58,0.15); }
-  footer { flex-direction:column; gap:8px; text-align:center; }
+  .metric:nth-child(4), .metric:nth-child(5){ border-top:1px solid rgba(11,31,58,0.15); }
+  footer { flex-direction:column; gap:12px; text-align:center; }
+  .footer-quote { display:none; }
 }
 </style>
 </head>
@@ -481,6 +246,7 @@ footer {
   <div class="nav-logo">Kashyap <span>Pandya</span></div>
   <div class="nav-links">
     <a href="#about">About</a>
+    <a href="#what-i-bring">What I Bring</a>
     <a href="#experience">Experience</a>
     <a href="#open">Open To</a>
     <a href="#contact">Contact</a>
@@ -495,7 +261,10 @@ footer {
       <h1 class="hero-name fade-up">Kashyap<span>Pandya</span></h1>
       <div class="hero-title fade-up">Infrastructure Transformation &amp; Automation Leader</div>
       <p class="hero-statement fade-up">
-        <strong>20+ years</strong> of enterprise IT leadership — turning complex infrastructure into competitive advantage. I don't just manage systems; I <strong>build transformation programs</strong> that cut costs, accelerate delivery, and position organisations for the next decade of technology.
+        <strong>20+ years</strong> shaping enterprise IT across BFSI, government, and insurance. Cloud architectures that actually hold up. Transformation programs that stick.
+      </p>
+      <p class="hero-intersect fade-up">
+        I sit at an unusual intersection — <em>deep database architecture expertise</em> combined with modern cloud and DevOps capability. That means I can talk to a DBA and a CXO in the same meeting, and make both of them confident.
       </p>
       <div class="hero-ctas fade-up">
         <a href="#contact" class="btn-primary">↓ Let's Connect</a>
@@ -530,8 +299,16 @@ footer {
         <div class="contact-icon">🔗</div>
         <div>
           <div class="contact-label">LinkedIn</div>
-          <div class="contact-val"><a href="https://linkedin.com/in/kashyap-pandya-473131a" target="_blank">linkedin.com/in/kashyap-pandya-473131a</a></div>
+          <div class="contact-val"><a href="https://linkedin.com/in/kashyap-pandya-in" target="_blank">linkedin.com/in/kashyap-pandya-in</a></div>
         </div>
+      </div>
+      <!-- NEW: Quick facts -->
+      <div class="quick-facts">
+        <div class="quick-facts-title">Quick Facts</div>
+        <div class="fact-row"><div class="fact-icon">🏢</div><div class="fact-text"><strong>TCS</strong> — 14 Years, Technical Architect</div></div>
+        <div class="fact-row"><div class="fact-icon">🎓</div><div class="fact-text"><strong>B.E. Engineering</strong> — Mumbai University, 2006</div></div>
+        <div class="fact-row"><div class="fact-icon">🌍</div><div class="fact-text"><strong>Belgium · Middle East · India</strong></div></div>
+        <div class="fact-row"><div class="fact-icon">🗣</div><div class="fact-text">English · Hindi · Gujarati</div></div>
       </div>
     </div>
   </div>
@@ -548,13 +325,80 @@ footer {
   </div>
 </div>
 
+<!-- ABOUT / STORY -->
+<section class="about-section">
+  <div class="section-inner">
+    <div class="section-label reveal">The Story</div>
+    <h2 class="section-heading reveal">The Man Behind the <span>Architecture</span></h2>
+    <div class="about-grid">
+      <div class="about-text reveal">
+        <p>I'm an infrastructure and automation leader with two decades of experience building and modernising enterprise IT across some demanding environments — government transport infrastructure in Belgium, mission-critical database programs for a major government bank in the Middle East, and automation work for financial services in Singapore.</p>
+        <p>Earlier in my career, I led a <strong>database tower team handling 24/7 shared services</strong> for Indian clients across BFSI, Oil &amp; Gas, and TTH sectors — where uptime wasn't negotiable and the team had to deliver regardless. Before that, at IBM, I travelled across the APAC region — Singapore, South Korea, Bangkok, Manila — designing and implementing data security frameworks using IBM Guardium and Optim, and running hands-on client workshops on secure database management. That international exposure, combined with on-ground delivery experience, laid the foundation for the broader transformation mandate I took on at TCS.</p>
+        <p>That foundation — from hands-on DBA work through to enterprise-wide cloud transformation — is what allows me to lead programs that are <strong>technically credible and commercially grounded</strong> at the same time.</p>
+        <p><strong>"Technology aligned to business outcomes — not the other way around."</strong> Every automation initiative, every cloud migration, every cost-saving measure has to trace directly back to what the business actually needs.</p>
+        <div class="about-quote">
+          The best infrastructure is the kind no one notices — it's fast, resilient, and completely invisible to the people who depend on it.
+          <cite>— Kashyap Pandya</cite>
+        </div>
+      </div>
+
+      <!-- Tools & Stack -->
+      <div class="about-tools reveal">
+        <div class="tools-heading">The Stack</div>
+        <div class="tools-group">
+          <div class="tools-group-label">Cloud Platforms</div>
+          <div class="tools-list">
+            <span class="tool-tag">Microsoft Azure</span>
+            <span class="tool-tag">Oracle Cloud (OCI)</span>
+            <span class="tool-tag">Hybrid Cloud</span>
+          </div>
+        </div>
+        <div class="tools-group">
+          <div class="tools-group-label">Infrastructure as Code &amp; Automation</div>
+          <div class="tools-list">
+            <span class="tool-tag">Terraform</span>
+            <span class="tool-tag">Ansible</span>
+            <span class="tool-tag">Azure DevOps</span>
+            <span class="tool-tag">CI/CD Pipelines</span>
+            <span class="tool-tag">Splunk</span>
+          </div>
+        </div>
+        <div class="tools-group">
+          <div class="tools-group-label">Databases</div>
+          <div class="tools-list">
+            <span class="tool-tag">Oracle</span>
+            <span class="tool-tag">PostgreSQL</span>
+            <span class="tool-tag">MySQL</span>
+            <span class="tool-tag">MS SQL Server</span>
+            <span class="tool-tag">IBM DB2</span>
+          </div>
+        </div>
+        <div class="tools-group">
+          <div class="tools-group-label">Security &amp; Data Management</div>
+          <div class="tools-list">
+            <span class="tool-tag">IBM Guardium</span>
+            <span class="tool-tag">IBM Optim</span>
+          </div>
+        </div>
+        <div class="tools-group">
+          <div class="tools-group-label">Certifications & Courses</div>
+          <div class="tools-list">
+            <span class="tool-tag">Azure Solution Architect Associate</span>
+            <span class="tool-tag">OCI Certified Architect</span>
+            <span class="tool-tag">TOGAF 9</span>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+</section>
+
 <!-- WHAT I BRING -->
-<section class="pillars">
+<section class="pillars" id="what-i-bring">
   <div class="section-inner">
     <div class="section-label reveal">What I Bring</div>
     <h2 class="section-heading reveal">Four pillars of <span>leadership impact</span></h2>
     <div class="pillars-grid">
-
       <div class="pillar reveal">
         <div class="pillar-num">01</div>
         <div class="pillar-title">Transformation <span>at Scale</span></div>
@@ -565,7 +409,6 @@ footer {
           <span class="pillar-tag">Cloud Modernisation</span>
         </div>
       </div>
-
       <div class="pillar reveal">
         <div class="pillar-num">02</div>
         <div class="pillar-title">Automation That <span>Moves Numbers</span></div>
@@ -576,7 +419,6 @@ footer {
           <span class="pillar-tag">FinOps</span>
         </div>
       </div>
-
       <div class="pillar reveal">
         <div class="pillar-num">03</div>
         <div class="pillar-title">Cross-Functional <span>Leadership</span></div>
@@ -587,7 +429,6 @@ footer {
           <span class="pillar-tag">10+ Teams Influenced</span>
         </div>
       </div>
-
       <div class="pillar reveal">
         <div class="pillar-num">04</div>
         <div class="pillar-title">Deep Technical <span>Foundation</span></div>
@@ -598,7 +439,6 @@ footer {
           <span class="pillar-tag">AIOps</span>
         </div>
       </div>
-
     </div>
   </div>
 </section>
@@ -607,9 +447,8 @@ footer {
 <section class="exp-section" id="experience">
   <div class="section-inner">
     <div class="section-label reveal">Career</div>
-    <h2 class="section-heading reveal">Professional <span>Experience</span></h2>
+    <h2 class="section-heading reveal">A Career of <span>Delivery</span></h2>
     <p class="section-sub reveal">20 years across global enterprise programs spanning government, BFSI, insurance, and financial services sectors.</p>
-
     <div class="exp-grid">
 
       <!-- TCS -->
@@ -631,6 +470,12 @@ footer {
             <li>Spearheaded <strong>15+ automation initiatives</strong>; currently leading OS and DB patching automation to eliminate manual dependencies.</li>
             <li>Mentored and guided engineering and delivery leads; cross-functional influence across <strong>10+ infrastructure, application, and operations teams</strong>.</li>
           </ul>
+          <div class="client-sectors">
+            <span class="client-badge">Belgium — Government Transport</span>
+            <span class="client-badge">Middle East — Government Bank</span>
+            <span class="client-badge">India — Insurance &amp; BFSI</span>
+            <span class="client-badge">Singapore — Financial Services</span>
+          </div>
         </div>
       </div>
 
@@ -674,13 +519,52 @@ footer {
   </div>
 </section>
 
+<!-- GLOBAL FOOTPRINT -->
+<section class="footprint-section">
+  <div class="section-inner">
+    <div class="section-label reveal">Reach</div>
+    <h2 class="section-heading reveal">Global <span>Footprint</span></h2>
+    <div class="footprint-grid">
+      <div class="footprint-card reveal">
+        <div class="footprint-flag">🇧🇪</div>
+        <div class="footprint-country">Belgium</div>
+        <div class="footprint-client">National Public Transportation Authority</div>
+        <div class="footprint-sector">Government Infrastructure · Infrastructure Transformation Lead</div>
+      </div>
+      <div class="footprint-card reveal">
+        <div class="footprint-flag">🇦🇪</div>
+        <div class="footprint-country">Middle East</div>
+        <div class="footprint-client">Largest Government Bank in the Region</div>
+        <div class="footprint-sector">BFSI · Database Migration Lead</div>
+      </div>
+      <div class="footprint-card reveal">
+        <div class="footprint-flag">🇮🇳</div>
+        <div class="footprint-country">India</div>
+        <div class="footprint-client">Leading Insurance Provider &amp; Banking Clients</div>
+        <div class="footprint-sector">Insurance &amp; BFSI · Database Tower Lead</div>
+      </div>
+      <div class="footprint-card reveal">
+        <div class="footprint-flag">🇸🇬</div>
+        <div class="footprint-country">Singapore</div>
+        <div class="footprint-client">Financial Services Client</div>
+        <div class="footprint-sector">Financial Services · Monitoring &amp; Automation</div>
+      </div>
+      <div class="footprint-card reveal">
+        <div class="footprint-flag">🌏</div>
+        <div class="footprint-country">APAC</div>
+        <div class="footprint-client">Enterprise Clients — IBM</div>
+        <div class="footprint-sector">Data Security &amp; DB Architecture · IBM Guardium</div>
+      </div>
+    </div>
+  </div>
+</section>
+
 <!-- OPEN TO -->
 <section class="open-section" id="open">
   <div class="section-inner">
     <div class="section-label reveal">Next Chapter</div>
     <h2 class="section-heading reveal">Open to <span>Leadership Roles</span></h2>
     <p class="section-sub reveal">Mumbai-based. Targeting senior leadership positions where I can drive large-scale transformation and build toward a Practice Head, Director, or CTO trajectory.</p>
-
     <div class="open-grid">
       <div class="open-card reveal">
         <div class="open-icon">🏗️</div>
@@ -730,7 +614,7 @@ footer {
   <div class="cta-inner">
     <div class="reveal">
       <h2 class="cta-heading">Ready to lead your next<br><span>transformation program.</span></h2>
-      <p class="cta-sub">If you're looking for a leader who can drive infrastructure transformation, automation strategy, and cross-functional delivery — let's have a conversation.</p>
+      <p class="cta-sub">Open to senior leadership roles, strategic consulting engagements, and transformation programs where technical depth and business impact are both expected.</p>
     </div>
     <div class="cta-buttons reveal">
       <a href="mailto:kashyap84@gmail.com" class="btn-primary">✉ Send an Email</a>
@@ -743,16 +627,15 @@ footer {
 <!-- FOOTER -->
 <footer>
   <div class="footer-name">Kashyap <span>Pandya</span></div>
-  <div class="footer-right">Infrastructure Transformation &amp; Automation Leader · Mumbai, India</div>
+  <div class="footer-quote">"The best infrastructure is the kind no one notices — it's fast, resilient, and completely invisible to the people who depend on it."</div>
+  <div class="footer-right">Infrastructure Transformation &amp; Automation Leader<br>Mumbai, India · © 2026</div>
 </footer>
 
 <script>
-// Scroll reveal
 const observer = new IntersectionObserver((entries) => {
   entries.forEach(e => {
     if(e.isIntersecting){
       e.target.classList.add('visible');
-      // stagger children
       const children = e.target.querySelectorAll('.reveal');
       children.forEach((child, i) => {
         setTimeout(() => child.classList.add('visible'), i * 80);
@@ -760,7 +643,6 @@ const observer = new IntersectionObserver((entries) => {
     }
   });
 }, { threshold: 0.12 });
-
 document.querySelectorAll('.reveal').forEach(el => observer.observe(el));
 </script>
 </body>
